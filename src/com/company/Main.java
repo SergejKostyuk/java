@@ -7,12 +7,13 @@ public class Main {
                 new Team("Anton Ivanov", "Shef", 500, 150,195,45),
                 new Team ("Xoxol Kit", "Zam. dir", 250, 69, 165, 41),
                 new Team("Fatima Gulnar", "Buhgalter", 100, 103, 169,39)};
-        for (Team team: teams){
-            System.out.println(team);
-        }
         Course []c = {new Course(240, 79, 180, 35)};
-        for(Course pr: c){
-            System.out.println(pr);
+        for (Team team: teams){
+            for(Course pr: c){
+                if(team.getStrong() >= pr.getUrStrong() && team.getIq()>= pr.getUrIq() && team.getRost()>= pr.getUrRost() && team.getAge()>= pr.getVozr()){
+                    System.out.println("Препятствия прошел: "+(team.getFio()) + "   Должность: " + (team.getPosition()));
+                }
+            }
         }
     }
 }
@@ -33,6 +34,30 @@ class Team{
         this.age = age;
     }
 
+    public String getFio() {
+        return fio;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public int getStrong() {
+        return strong;
+    }
+
+    public int getIq() {
+        return iq;
+    }
+
+    public int getRost() {
+        return rost;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString(){
         return "ФИО: " + fio + "   "+ "Должность: " + position +"   "+ "Сила: " + strong +"   "+ "Iq: " + iq + "   "+"Рост: " + rost + "см   " + "Возраст: " + age;
@@ -50,6 +75,23 @@ class Course{
         this.urRost=urRost;
         this.vozr=vozr;
     }
+
+    public int getUrStrong() {
+        return urStrong;
+    }
+
+    public int getUrIq() {
+        return urIq;
+    }
+
+    public int getUrRost() {
+        return urRost;
+    }
+
+    public int getVozr() {
+        return vozr;
+    }
+
     @Override
     public String toString(){
         return "Поднять штангу: "+ urStrong+ "кг   "+ "Уровень IQ: "+urIq+"   "+"Минималльный рост: "+ urRost+"см   "+"Возростная категория: "+vozr;
